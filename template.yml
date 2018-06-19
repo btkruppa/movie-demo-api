@@ -35,15 +35,15 @@ Resources:
             Method: get
   FindMoviesByYear:
     Type: AWS::Serverless::Function
-      Properties:
-        Handler: index.findByYear
-        Runtime: nodejs6.10
-        Role:
-          Fn::ImportValue:
-            !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
-        Events:
-          GetEvent:
-            Type: Api
-            Properties:
-              Path: /movies/year/{year}
-              Method: get
+    Properties:
+      Handler: index.findByYear
+      Runtime: nodejs6.10
+      Role:
+        Fn::ImportValue:
+          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /movies/year/{year}
+            Method: get
